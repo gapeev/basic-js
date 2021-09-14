@@ -3,7 +3,7 @@ import { NotImplementedError } from '../extensions/index.js';
 /**
  * Given matrix where you have to find cats by ears "^^"
  *
- * @param {Array<Array>} matrix 
+ * @param {Array<Array>} matrix
  * @return {Number} count of cats found
  *
  * @example
@@ -14,7 +14,7 @@ import { NotImplementedError } from '../extensions/index.js';
  * ]) => 3`
  *
  */
-export default function countCats(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function countCats(matrix) {
+  const flatMatrix = matrix.reduce((acc, row) => [...acc, ...row], []);
+  return flatMatrix.filter((item) => item === '^^').length;
 }
