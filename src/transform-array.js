@@ -39,6 +39,9 @@ export default function transform(arr) {
       }
       return [...acc, item, item];
     }
+    if (arr[index + 1] === "--double-prev") {
+      return [...acc, item, item];
+    }
     return [...acc, item];
   }, []);
 }
