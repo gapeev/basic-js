@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Create name of dream team based on the names of its members
@@ -19,8 +19,8 @@ export default function createDreamTeam(members) {
   }
 
   return members
-    .filter((member) => typeof(member) === 'string')
+    .filter((member) => typeof member === "string")
     .map((member) => member.trim()[0].toUpperCase())
     .sort((a, b) => a.localeCompare(b))
-    .join('');
+    .join("");
 }

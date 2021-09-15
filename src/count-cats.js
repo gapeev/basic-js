@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Given matrix where you have to find cats by ears "^^"
@@ -16,5 +16,5 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 export default function countCats(matrix) {
   const flatMatrix = matrix.reduce((acc, row) => [...acc, ...row], []);
-  return flatMatrix.filter((item) => item === '^^').length;
+  return flatMatrix.filter((item) => item === "^^").length;
 }

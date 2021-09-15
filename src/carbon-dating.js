@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 const MODERN_ACTIVITY = 15;
 const HALF_LIFE_PERIOD = 5730;
@@ -18,20 +18,21 @@ const HALF_LIFE_PERIOD = 5730;
  *
  */
 export default function dateSample(sampleActivity) {
-  if (typeof(sampleActivity) !== 'string') {
+  if (typeof sampleActivity !== "string") {
     return false;
   }
 
   const normalizedSampleActivity = parseFloat(sampleActivity);
   if (
-    isNaN(normalizedSampleActivity)
-    || normalizedSampleActivity <= 0
-    || normalizedSampleActivity > MODERN_ACTIVITY
+    isNaN(normalizedSampleActivity) ||
+    normalizedSampleActivity <= 0 ||
+    normalizedSampleActivity > MODERN_ACTIVITY
   ) {
     return false;
   }
 
   const k = Math.LN2 / HALF_LIFE_PERIOD;
-  const t = (Math.log(MODERN_ACTIVITY / normalizedSampleActivity) / Math.log(Math.E)) / k;
+  const t =
+    Math.log(MODERN_ACTIVITY / normalizedSampleActivity) / Math.log(Math.E) / k;
   return Math.ceil(t);
 }
