@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Given matrix, a rectangular matrix of integers,
@@ -16,7 +16,20 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  * The result should be 9
  */
-export default function getMatrixElementsSum(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+export default function getMatrixElementsSum(matrix) {
+  const reversedMatrix = [...matrix].map((row) => [...row].reverse());
+  const rotatedMatrix = reversedMatrix[0].map((_, colIndex) =>
+    reversedMatrix.map((row) => row[colIndex])
+  );
+
+  return rotatedMatrix
+    .map((row) => {
+      const zeroIndex = row.indexOf(0);
+      if (zeroIndex === -1) {
+        return row;
+      }
+      return row.slice(0, zeroIndex);
+    })
+    .map((row) => row.reduce((acc, value) => acc + value, 0))
+    .reduce((acc, value) => acc + value, 0);
 }
